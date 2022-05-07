@@ -4,8 +4,8 @@ import "./NewItems.style.scss";
 
 const NewItems = ({ data }) => {
   return (
-    <div className="item">
-      <div className="new-items">
+    <div className="new-item">
+      <div className="new-image">
       <img src={data.image} alt="item" />
       </div>
       <Link to={`/details/:${data.id}`}>

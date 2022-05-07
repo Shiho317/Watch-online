@@ -14,7 +14,7 @@ const ModalMenu = ({ isOpen }) => {
           <NavHashLink to="/item#best">Best Collections</NavHashLink>
         </li>
         <li>
-          <Link to="/service">Services</Link>
+          <Link to="/service">Our Services</Link>
         </li>
       </ul>
     </div>

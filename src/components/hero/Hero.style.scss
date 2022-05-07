@@ -1,4 +1,4 @@
-@use '../../sass/setting/color' as *;
+@use "../../sass/setting/color" as *;
 
 .hero {
   position: relative;
@@ -7,7 +7,7 @@
   height: 100vh;
   display: flex;
 
-  &-white{
+  &-white {
     width: 60%;
     height: 100%;
     background-color: white;
@@ -16,7 +16,7 @@
     align-items: center;
   }
 
-  &-title{
+  &-title {
     width: 35rem;
     display: flex;
     flex-direction: column;

@@ -7,12 +7,13 @@ import { NavHashLink } from "react-router-hash-link";
 
 const NewArr = () => {
   const { datas } = useContext(AppContext);
+  const newArrDatas = datas.filter(data => data.category.includes('new'));
 
   return (
     <div className="new-arrivals">
       <h2>New Arrivals</h2>
       <div className="items-wrapper">
-        {datas.slice(0, 3).map((data) => (
+        {newArrDatas.slice(0, 3).map((data) => (
           <NewItems data={data} key={data.id} />
         ))}
       </div>

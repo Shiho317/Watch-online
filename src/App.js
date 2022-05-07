@@ -8,7 +8,7 @@ import Hero from "./components/hero/Hero";
 import Item from "./components/item/Item";
 import Service from "./components/service/Service";
 import { collection, getDocs } from "firebase/firestore";
-import { db } from "./firebase";
+import { db } from "./Firebase";
 import Details from "./components/details/Details";
 
 export const AppContext = createContext();

@@ -1,0 +1,108 @@
+@use "../../../sass/setting/color" as *;
+
+.best-collections {
+  position: relative;
+  width: 100%;
+  padding: 5rem 0;
+
+  & h2 {
+    position: relative;
+    width: 15rem;
+    text-align: end;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 2px;
+      background-color: $color-brown;
+    }
+  }
+
+  & .items-wrapper {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+  }
+}
+
+.best-header {
+  display: flex;
+  width: 80%;
+  margin: 4rem auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &-image {
+    width: 30rem;
+    height: 30rem;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    & img {
+      width: 100%;
+    }
+  }
+
+  &-subtitle {
+    position: relative;
+    width: 40rem;
+    height: 30rem;
+
+    & .as-gift {
+      width: 70%;
+      margin: 2rem auto;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+
+      & h1 {
+        color: $color-brown;
+        font-size: 3rem;
+
+        &:nth-child(2) {
+          text-align: end;
+        }
+      }
+
+      & p {
+        text-align: end;
+      }
+    }
+
+    & a {
+      text-decoration: none;
+    }
+
+    & button {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      color: $color-brown;
+      background-color: transparent;
+      border: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 1.2rem;
+      cursor: pointer;
+
+      & h3 {
+        color: black;
+
+        &:hover {
+          color: $color-brown;
+          transition: color 0.3s ease;
+        }
+      }
+    }
+  }
+}
