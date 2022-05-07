@@ -9,6 +9,7 @@ import Item from "./components/item/Item";
 import Service from "./components/service/Service";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "./firebase";
+import Details from "./components/details/Details";
 
 export const AppContext = createContext();
 
@@ -41,6 +42,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Hero />} />
             <Route path="/item" element={<Item />} />
+            <Route path="/details/:id" element={<Details />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/service" element={<Service />} />
           </Routes>
