@@ -1,0 +1,16 @@
+@use '../../../sass/setting/color' as *;
+
+.new-items {
+  width: 20rem;
+  height: 20rem;
+  border: 2px solid $color-brown;
+
+  &:hover{
+    transform: scale(1.1);
+    transition: all 0.3s ease;
+  }
+
+  & img {
+    height: 100%;
+  }
+}

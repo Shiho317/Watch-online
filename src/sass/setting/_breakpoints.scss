@@ -1,0 +1,19 @@
+$pc: 1024px;
+$tablet: 768px;
+$mb: 320px;
+
+@mixin pc {
+  @media (max-width: ($pc)) {
+    @content;
+  }
+}
+@mixin tablet {
+  @media (max-width: ($tablet)) {
+    @content;
+  }
+}
+@mixin mb {
+  @media (max-width: ($mb)) {
+    @content;
+  }
+}

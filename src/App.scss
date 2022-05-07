@@ -1,3 +1,2 @@
-.hello {
-  color: aqua;
-}
+@use './sass/setting/color' as *;
+@use './sass/base/base' as *;

@@ -1,0 +1,57 @@
+@use '../../../sass/setting/color' as *;
+
+.new-arrivals{
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  padding: 5rem 0;
+
+  & h2{
+    position: relative;
+    width: 15rem;
+    text-align: end;
+
+    &::after{
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 2px;
+      background-color: $color-brown;
+    }
+  }
+
+  & button{
+    position: absolute;
+    bottom: 8rem;
+    right: 10%;
+    color: $color-brown;
+    background-color: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+
+    & h3{
+      color: black;
+
+      &:hover{
+        color: $color-brown;
+        transition: color 0.3s ease;
+      }
+    }
+  }
+}
+
+.items-wrapper {
+  transform: translateY(40%);
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+}

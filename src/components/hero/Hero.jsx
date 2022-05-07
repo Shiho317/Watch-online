@@ -1,40 +1,39 @@
-import { collection, getDocs } from 'firebase/firestore'
-import React, { useEffect, useState } from 'react'
-import { db } from '../../Firebase'
-import BestColl from './BestCollections/BestColl'
-import NewArr from './newArrivals/NewArr'
-import Services from './Services/Services'
+import React from "react";
+import BestColl from "./BestCollections/BestColl";
+import NewArr from "./newArrivals/NewArr";
+import Services from "./Services/Services";
+import "./Hero.style.scss";
 
 const Hero = () => {
-
-  const [ datas, setDatas ] = useState([]);
-
-  useEffect(() => {
-    const getData = async() => {
-      getDocs(collection(db, 'watches'))
-        .then(storeData => {
-          setDatas(storeData.docs.map(doc => ({
-            ...doc.data(),
-            id: doc.id
-          })))
-        })
-        .catch(error => {
-          console.log(error.message)
-        })
-    }
-    getData()
-  },[])
-
-  console.log(datas)
-
   return (
     <>
-      <div>Hero</div>
-      <NewArr/>
-      <BestColl/>
-      <Services/>
+      <div className="hero">
+        <div className="hero-white">
+          <div className="hero-title">
+            <h1>A Watch Makes You More Attractive</h1>
+            <p>
+              A watch...
+              <br />
+              tells you a time, part of your fashion, makes you a confidence.
+              <br />
+              Are you looking for the best watch for you? <br />
+              We would like to help you.
+            </p>
+          </div>
+        </div>
+        <div className="hero-brown"></div>
+        <div className="hero-img">
+          <img
+            src="https://www.rakuten.ne.jp/gold/theclockhouse/campaign/casual/lca1004-bk1.gif"
+            alt="hero-gif"
+          />
+        </div>
+      </div>
+      <NewArr />
+      <BestColl />
+      <Services />
     </>
-  )
-}
+  );
+};
 
-export default Hero
+export default Hero;
