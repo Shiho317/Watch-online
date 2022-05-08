@@ -21,32 +21,32 @@ const Footer = () => {
               <Link to="/">Your Orders</Link>
             </li>
             <li>
-              <Link to="/service">Returns</Link>
+              <Link to="/support">Returns</Link>
             </li>
             <li>
               <Link to="/service">Customer Service</Link>
             </li>
             <li>
-              <Link to="/service">Contacts</Link>
+              <Link to="/support">Contacts</Link>
             </li>
           </ul>
         </div>
-        <div class="footer-icon">
-          <div class="icon">
+        <div className="footer-icon">
+          <div className="icon">
             <RiTwitterLine />
           </div>
-          <div class="icon">
+          <div className="icon">
             <RiFacebookBoxLine />
           </div>
-          <div class="icon">
+          <div className="icon">
             <RiLinkedinBoxLine />
           </div>
-          <div class="icon">
+          <div className="icon">
             <RiInstagramLine />
           </div>
         </div>
       </div>
-      <div class="copyright">
+      <div className="copyright">
         <h6>Copyright ©2022 ShihoN All Rights Reserved.</h6>
       </div>
     </div>

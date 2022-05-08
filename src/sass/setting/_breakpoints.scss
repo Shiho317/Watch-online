@@ -3,17 +3,17 @@ $tablet: 768px;
 $mb: 320px;
 
 @mixin pc {
-  @media (max-width: ($pc)) {
+  @media (min-width: ($pc)) {
     @content;
   }
 }
-@mixin tablet {
-  @media (max-width: ($tablet)) {
+@mixin tb {
+  @media (min-width: ($tablet)) {
     @content;
   }
 }
 @mixin mb {
-  @media (max-width: ($mb)) {
+  @media (min-width: ($mb)) {
     @content;
   }
 }

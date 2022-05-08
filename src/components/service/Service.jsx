@@ -47,7 +47,7 @@ const Service = () => {
           </p>
           <p>
             If you have a question about quality of merchandise, please use &nbsp;
-          <Link to="/">Customer support.</Link> We take a responsivility about
+          <Link to="/support">Customer support.</Link> We take a responsivility about
           quarity of merchandise.
           </p>
         </div>
@@ -72,7 +72,7 @@ const Service = () => {
             <br />
           </h3>
           <p>
-            Please contact to <Link to="/">Customer support</Link> for applying
+            Please contact to <Link to="/support">Customer support</Link> for applying
             cancellation.
           </p>
         </div>
@@ -84,7 +84,7 @@ const Service = () => {
         <div className="explanation">
           <p>
             We have a confidence about our watch is high quarity and working
-            last longer. Thus, we give warranty support to our customer.{" "}
+            last longer. Thus, we give warranty support to our customer.&nbsp;
           </p>
           <h3>
             Free exchange support (30days)
@@ -95,8 +95,8 @@ const Service = () => {
             <br />
           </h3>
           <p>
-            If you need warranty support, please contact to{" "}
-            <Link to="/">Customer support</Link>.
+            If you need warranty support, please contact to&nbsp;
+            <Link to="/support">Customer support</Link>.
           </p>
         </div>
       </div>
