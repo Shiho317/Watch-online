@@ -1,6 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { RiFacebookBoxLine, RiTwitterLine, RiInstagramLine, RiLinkedinBoxLine } from 'react-icons/ri'
+import {
+  RiFacebookBoxLine,
+  RiTwitterLine,
+  RiInstagramLine,
+  RiLinkedinBoxLine,
+} from "react-icons/ri";
 import "./Footer.style.scss";
 
 const Footer = () => {

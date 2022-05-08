@@ -1,6 +1,6 @@
-@use '../../sass/setting/color' as *;
+@use "../../sass/setting/color" as *;
 
-.footer{
+.footer {
   width: 100%;
   height: 20rem;
   background-color: $color-brown;
@@ -9,7 +9,7 @@
   align-items: center;
   justify-content: space-evenly;
 
-  &-section{
+  &-section {
     width: 80%;
     display: flex;
     justify-content: center;
@@ -22,7 +22,7 @@
     padding: 0;
   }
 
-  &-list ul{
+  &-list ul {
     width: 100%;
     height: 60%;
     display: grid;
@@ -32,22 +32,22 @@
     justify-content: start;
     gap: 20px;
 
-    & li{
+    & li {
       font-size: 1.1rem;
       list-style: none;
 
-      & a{
+      & a {
         text-decoration: none;
         color: black;
       }
 
-      &:hover{
+      &:hover {
         opacity: 0.5;
       }
     }
   }
 
-  &-icon{
+  &-icon {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
@@ -56,7 +56,7 @@
     height: 100%;
     width: 30%;
 
-    & .icon{
+    & .icon {
       display: flex;
       justify-content: center;
       align-items: center;
@@ -67,9 +67,9 @@
         transition: color 0.3s ease;
       }
     }
-}
+  }
 
-& .copyright{
+  & .copyright {
     text-align: center;
     margin-top: 30px;
     font-size: 1rem;

@@ -1,15 +1,10 @@
-import React, { useContext } from "react";
+import React from "react";
 import { NavHashLink } from "react-router-hash-link";
-import { AppContext } from "../../../App";
 import { MdArrowForwardIos } from "react-icons/md";
 import BestItems from "./BestItems";
 import "./BestColl.style.scss";
 
-const BestColl = () => {
-  const { datas } = useContext(AppContext);
-
-  const bestDatas = datas.filter((data) => data.category.includes("best"));
-
+const BestColl = ({ bestDatas }) => {
   return (
     <div className="best-collections">
       <h2>Best Collections</h2>

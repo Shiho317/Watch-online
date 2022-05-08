@@ -24,7 +24,7 @@ const Header = () => {
           <BiSearch />
           <BsHandbag />
         </div>
-        <ModalMenu isOpen={isOpen} />
+        <ModalMenu isOpen={isOpen} setOpen={setOpen} />
       </div>
     </>
   );

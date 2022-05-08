@@ -1,9 +1,20 @@
-import React from 'react'
+import React, { useContext } from "react";
+import BestColls from "./bestColls/BestColls";
+import NewArrivals from "./newArrivals/NewArrivals";
+import { AppContext } from "../../App";
 
 const Item = () => {
-  return (
-    <div>Item</div>
-  )
-}
+  const { datas } = useContext(AppContext);
 
-export default Item
+  const newArrivalDatas = datas.filter((data) => data.category.includes("new"));
+  const bestCollsDatas = datas.filter((data) => data.category.includes("best"));
+
+  return (
+    <>
+      <NewArrivals newArrivalDatas={newArrivalDatas} />
+      <BestColls bestCollsDatas={bestCollsDatas} />
+    </>
+  );
+};
+
+export default Item;
