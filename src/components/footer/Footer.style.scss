@@ -49,6 +49,7 @@
     & li {
       font-size: 0.8rem;
       list-style: none;
+      cursor: pointer;
 
       @include pc {
         font-size: 1.1rem;

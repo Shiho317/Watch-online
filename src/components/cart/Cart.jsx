@@ -18,6 +18,9 @@ const Cart = ({ items }) => {
         ))}
       </div>
       <h3>Cart Total: CA${totalItemsPrice.toFixed(2)}</h3>
+      <div className="your-cart-button">
+        <button>Check Out</button>
+      </div>
     </div>
   );
 };

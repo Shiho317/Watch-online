@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import {
   RiFacebookBoxLine,
@@ -7,15 +7,19 @@ import {
   RiLinkedinBoxLine,
 } from "react-icons/ri";
 import "./Footer.style.scss";
+import { AppContext } from "../../App";
 
 const Footer = () => {
+
+  const { setIsCartOpen } = useContext(AppContext);
+
   return (
     <div className="footer">
       <div className="footer-section">
         <div className="footer-list">
           <ul>
-            <li>
-              <Link to="/cart">Your Cart</Link>
+            <li onClick={() => setIsCartOpen(true)}>
+              Your Cart
             </li>
             <li>
               <Link to="/">Your Orders</Link>

@@ -1,0 +1,88 @@
+@use '../../sass/setting/color' as *;
+
+.curr-item {
+  width: 80%;
+  display: flex;
+  gap: 1rem;
+  padding: 5rem 0;
+  margin: 0 auto;
+
+  &-image{
+    position: relative;
+    width: 30rem;
+    height: 30rem;
+    overflow: hidden;
+    border: 1px solid $color-brown;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    & img{
+      height: 100%;
+    }
+
+    & .stock-label{
+      position: absolute;
+      left: 0;
+      top: 0;
+      background-color: $color-brown;
+      color: white;
+      padding: 1rem;
+    }
+  }
+
+  &-contents{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+  }
+
+  &-details{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 1rem;
+
+    & h2{
+      margin: 0.5rem 0;
+    }
+
+    & h3{
+
+    }
+
+    & select{
+      width: 2rem;
+    }
+  }
+
+  &-buttons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+
+    & a{
+      text-decoration: none;
+    }
+
+    & button{
+      background-color: $color-brown;
+      border: none;
+      color: white;
+      width: 10rem;
+      height: 2.5rem;
+      border-radius: 5px;
+      cursor: pointer;
+
+      &:hover {
+        transition: all 0.3s ease;
+        background-color: #918883;
+      }
+    }
+  }
+}

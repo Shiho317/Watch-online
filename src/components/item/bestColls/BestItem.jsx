@@ -1,5 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { addItem, updateItem } from "../../../features/ItemSlice";
 import "./BestItem.style.scss";
 
@@ -31,15 +32,17 @@ const BestItem = ({ item, items }) => {
     }
   };
 
-  const buyNow = () => {
-    console.log("able");
+  const navigate = useNavigate();
+
+  const toDetails = () => {
+    navigate(`/details/${item.id}`);
   };
 
   return (
     <div className="best-item">
       <div className="best-item-image">
         <img src={item.image} alt="item" />
-        {!item.available && <p className="stock-label">Out of stock</p>}
+        {!item.available ? <p className="stock-label">Out of stock</p> : item.stock <= 5 && <p className="stock-label">Only {item.stock} left</p>}
       </div>
       <div className="best-item-details">
         <h3>{item.company}</h3>
@@ -57,11 +60,9 @@ const BestItem = ({ item, items }) => {
         </button>
         <button
           type="button"
-          disabled={!item.available}
-          style={{ opacity: !item.available ? 0.5 : 1 }}
-          onClick={() => buyNow()}
+          onClick={() => toDetails()}
         >
-          Buy Now
+          Details
         </button>
       </div>
     </div>

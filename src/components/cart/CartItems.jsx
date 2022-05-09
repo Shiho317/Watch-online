@@ -30,7 +30,7 @@ const CartItems = ({ item }) => {
       </div>
       <div className="cart-item-details">
         <h4>{item.name}</h4>
-        <p>CA${item.price}</p>
+        <p>CA${(item.price).toFixed(2)}</p>
         <select name="amount" id="amount" value={isAmount} onChange={(e) => onChangeAmount(e)}>
           <option value={1} >1</option>
           <option value={2} >2</option>
@@ -38,7 +38,7 @@ const CartItems = ({ item }) => {
           <option value={4} >4</option>
           <option value={5} >5</option>
         </select>
-        <h4>Total: CA${item.price * isAmount}</h4>
+        <h4>Total: CA${(item.price * isAmount).toFixed(2)}</h4>
       </div>
       <div className="cart-item-delete" onClick={() => deleteFromCart()}>
         <FiTrash />

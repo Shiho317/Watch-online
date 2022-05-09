@@ -1,4 +1,4 @@
-@use '../../sass/setting/color' as *;
+@use "../../sass/setting/color" as *;
 
 .your-cart {
   width: 30vw;
@@ -11,7 +11,7 @@
     display: none;
   }
 
-  & p{
+  & p {
     text-align: center;
   }
 
@@ -33,5 +33,26 @@
     flex-direction: column;
     align-items: center;
     gap: 2rem;
+  }
+
+  &-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & button {
+      background-color: $color-brown;
+      border: none;
+      color: white;
+      width: 10rem;
+      height: 2.5rem;
+      border-radius: 5px;
+      cursor: pointer;
+
+      &:hover {
+        transition: all 0.3s ease;
+        background-color: #918883;
+      }
+    }
   }
 }
