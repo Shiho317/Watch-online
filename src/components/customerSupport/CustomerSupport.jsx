@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import "./CustomerSupport.style.scss";
 import { FiPhoneCall } from "react-icons/fi";
 import { BsChatDots } from "react-icons/bs";
+import Chat from "../chat/Chat";
 
 const CustomerSupport = () => {
+  const [startChat, setStartChat] = useState(false);
+
   return (
     <div className="customer-support">
       <div className="layer-bg"></div>
@@ -16,7 +19,6 @@ const CustomerSupport = () => {
           </p>
         </div>
       </div>
-
       <div className="contact-way">
         <div className="phone-call">
           <div className="icon">
@@ -32,11 +34,12 @@ const CustomerSupport = () => {
             <BsChatDots />
           </div>
           <div>
-            <button>Send a text</button>
+            <button onClick={() => setStartChat(true)}>Send a text</button>
           </div>
           <p>Open Hour: 24/7</p>
         </div>
       </div>
+      <Chat setStartChat={setStartChat} startChat={startChat}/>
     </div>
   );
 };

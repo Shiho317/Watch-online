@@ -1,0 +1,103 @@
+@use "../../sass/setting/color" as *;
+
+.support-chat {
+  position: fixed;
+  bottom: 0;
+  background: #d6c7bf;
+  width: 30rem;
+  height: 40rem;
+  padding: 3rem 2rem;
+  transition: all 0.5s ease;
+
+  &-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    color: $color-brown;
+    cursor: pointer;
+    font-size: 1.5rem;
+
+    &:hover {
+      transition: all 0.3s ease;
+      color: #918883;
+    }
+  }
+
+  &-message {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: scroll;
+    gap: 0.5rem;
+
+    & .support-message,
+    & .user-message {
+      width: 100%;
+      display: flex;
+      align-items: center;
+
+      & p {
+        word-wrap: break-word;
+        padding: 8px 16px;
+        box-shadow: 0 0 32px rgb(0 0 0 / 8%), 0 16px 16px -16px rgb(0 0 0 / 10%);
+      }
+    }
+
+    & .support-message {
+      justify-content: flex-start;
+
+      & p {
+        border-radius: 18px 18px 18px 0px;
+        background-color: white;
+      }
+    }
+
+    & .user-message {
+      justify-content: flex-end;
+
+      & p {
+        border-radius: 18px 18px 0 18px;
+        background-color: $color-brown;
+      }
+    }
+  }
+
+  &-input {
+    position: absolute;
+    bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 26rem;
+    margin: 0 auto;
+
+    & input {
+      width: 100%;
+      height: 2rem;
+      border: none;
+      border-radius: 2px 0 0 2px;
+      outline: none;
+    }
+
+    & button {
+      background-color: $color-brown;
+      color: white;
+      border: none;
+      font-size: 1rem;
+      width: 2rem;
+      height: 2rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 0 2px 2px 0;
+
+      &:hover {
+        transition: all 0.3s ease;
+        background-color: #918883;
+      }
+    }
+  }
+}
