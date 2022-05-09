@@ -1,23 +1,34 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { addItem } from "../../../features/ItemSlice";
+import { addItem, updateItem } from "../../../features/ItemSlice";
 import "./NewItem.style.scss";
 
-const NewItem = ({ item }) => {
-
+const NewItem = ({ item, items }) => {
   const dispatch = useDispatch();
 
+  const clickedWatch = items.find((watch) => watch.id === item.id);
+
   const addToCart = () => {
-    dispatch(
-      addItem({
-        id: item.id,
-        company: item.company,
-        desc: item.desc,
-        image: item.image,
-        name: item.name,
-        price: item.price,
-      })
-    );
+    if (clickedWatch) {
+      dispatch(
+        updateItem({
+          ...item,
+          amount: clickedWatch.amount + 1,
+        })
+      );
+    } else {
+      dispatch(
+        addItem({
+          id: item.id,
+          company: item.company,
+          desc: item.desc,
+          image: item.image,
+          name: item.name,
+          price: item.price,
+          amount: 1,
+        })
+      );
+    }
   };
 
   return (

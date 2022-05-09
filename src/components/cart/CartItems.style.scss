@@ -1,24 +1,47 @@
+@use '../../sass/setting/color' as *;
+
 .cart-item{
+  width: 90%;
+  display: grid;
+  grid-template-columns: 4fr 4fr 1fr;
+  align-items: center;
   
   &-image{
+    width: 10rem;
+    height: 10rem;
+    border: 1px solid $color-brown;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     & img{
-
+      height: 100%;
     }
   }
 
   &-details{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-start;
 
     & h4{
 
     }
 
     & p{
+      
+    }
 
+    & select{
+      width: 2rem;
     }
   }
 
   &-delete{
-    
+    display: flex;
+    justify-content: center;
+    font-size: 1rem;
+    cursor: pointer;
   }
 }
