@@ -11,6 +11,9 @@ import { collection, getDocs } from "firebase/firestore";
 import { db } from "./Firebase";
 import Details from "./components/details/Details";
 import CustomerSupport from "./components/customerSupport/CustomerSupport";
+import ScrollToTop from "./components/ScrollToTop";
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { useSelector } from "react-redux";
 
 export const AppContext = createContext();
 
@@ -35,10 +38,23 @@ function App() {
     getData();
   }, []);
 
+  const theme = createTheme({
+    palette: {
+      primary: {
+        main: '#bfb2ab'
+      }
+    }
+  })
+
+  const [isCartOpen, setIsCartOpen] = useState(false);
+  const items = useSelector((state) => state.items);
+
   return (
     <>
-      <AppContext.Provider value={{ datas }}>
+      <AppContext.Provider value={{ datas, isCartOpen, setIsCartOpen, items }}>
+        <ThemeProvider theme={theme}>
         <Router>
+          <ScrollToTop/>
           <Header />
           <Routes>
             <Route path="/" element={<Hero />} />
@@ -50,6 +66,7 @@ function App() {
           </Routes>
           <Footer />
         </Router>
+        </ThemeProvider>
       </AppContext.Provider>
     </>
   );

@@ -1,8 +1,8 @@
 import React from "react";
-import { NavHashLink } from "react-router-hash-link";
 import { MdArrowForwardIos } from "react-icons/md";
 import BestItems from "./BestItems";
 import "./BestColl.style.scss";
+import { HashLink } from 'react-router-hash-link';
 
 const BestColl = ({ bestDatas }) => {
   return (
@@ -22,12 +22,12 @@ const BestColl = ({ bestDatas }) => {
             <h1>For Friend</h1>
             <p>Gift the best watch to someone important in your life.</p>
           </div>
-          <NavHashLink to="/item#best">
+          <HashLink to="/item#best">
             <button>
               <h3>See More</h3>
               <MdArrowForwardIos />
             </button>
-          </NavHashLink>
+          </HashLink>
         </div>
       </div>
       <div className="items-wrapper">

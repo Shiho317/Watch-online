@@ -2,7 +2,7 @@ import React from "react";
 import NewItems from "./NewItems";
 import "./NewArr.style.scss";
 import { MdArrowForwardIos } from "react-icons/md";
-import { NavHashLink } from "react-router-hash-link";
+import { HashLink } from 'react-router-hash-link';
 
 const NewArr = ({ newArrDatas }) => {
   return (
@@ -13,12 +13,12 @@ const NewArr = ({ newArrDatas }) => {
           <NewItems data={data} key={data.id} />
         ))}
       </div>
-      <NavHashLink to="/item#new">
+      <HashLink to="/item#new">
         <button>
           <h3>See More</h3>
           <MdArrowForwardIos />
         </button>
-      </NavHashLink>
+      </HashLink>
     </div>
   );
 };

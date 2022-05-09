@@ -9,6 +9,7 @@
   gap: 1rem;
 
   &-image {
+    position: relative;
     width: 20rem;
     height: 20rem;
     display: flex;
@@ -19,6 +20,15 @@
 
     & img {
       height: 100%;
+    }
+
+    & .stock-label{
+      position: absolute;
+      left: 0;
+      top: 0;
+      background-color: $color-brown;
+      color: white;
+      padding: 1rem;
     }
   }
 
@@ -48,7 +58,7 @@
 
       &:hover {
         transition: all 0.3s ease;
-        opacity: 0.5;
+        background-color: #918883;
       }
     }
   }
