@@ -1,10 +1,5 @@
-import {
-  addDoc,
-  collection,
-  getDocs,
-  serverTimestamp,
-} from "firebase/firestore";
-import React, { useEffect, useRef, useState } from "react";
+import { addDoc, collection, serverTimestamp } from "firebase/firestore";
+import React, { useState } from "react";
 import { db } from "../../Firebase";
 import "./Chat.style.scss";
 import { FiSend } from "react-icons/fi";
@@ -13,8 +8,20 @@ import { useDispatch, useSelector } from "react-redux";
 import { addMessage, resetChat } from "../../features/MessageSlice";
 
 const Chat = ({ setStartChat, startChat }) => {
-  
+  const [inquiryInfo, setInquiryInfo] = useState({
+    number: 0,
+    order: "",
+    timestamp: "",
+  });
+
+  const addToFirestore = async () => {
+    const addInquiry = await addDoc(collection(db, "inquiry"), inquiryInfo);
+    console.log("Data store Id: ,", addInquiry.id);
+  };
+
   const [reply, setReply] = useState("");
+
+  const [inquiryNumber, setInquiryNumber] = useState("");
 
   const onChangeHandler = (e) => {
     setReply(e.target.value);
@@ -24,7 +31,7 @@ const Chat = ({ setStartChat, startChat }) => {
 
   const addedByCustomer = (e) => {
     e.preventDefault();
-    console.log(reply.length)
+    console.log(reply.length);
 
     dispatch(
       addMessage({
@@ -41,6 +48,11 @@ const Chat = ({ setStartChat, startChat }) => {
             user: "company",
           })
         );
+        setInquiryNumber(reply);
+        setInquiryInfo({
+          ...inquiryInfo,
+          number: reply,
+        });
       } else if (reply === "1" || reply === "4") {
         dispatch(
           addMessage({
@@ -49,11 +61,44 @@ const Chat = ({ setStartChat, startChat }) => {
             user: "company",
           })
         );
-      }else if(reply.length > 6) {
+      } else if (reply.length > 6) {
         dispatch(
           addMessage({
             message:
-              "Thank you for your information. We will contact your email address that you registered in order form. Please be patient and thank you for your understanding.",
+              "Thank you for your information. Please check your information is correct and text me 'yes' or 'no' as your answer.",
+            user: "company",
+            option: [
+              `About: ${messagesArr[0].option[Number(inquiryNumber) - 1]}`,
+              `Order Number: ${reply}`,
+            ],
+          })
+        );
+        setInquiryInfo({
+          ...inquiryInfo,
+          order: reply,
+          timestamp: serverTimestamp(),
+        });
+      } else if (reply === "yes") {
+        dispatch(
+          addMessage({
+            message:
+              "Thank you for answering. We will contact your email address that you registered in order form. Please be patient and thank you for your understanding.",
+            user: "company",
+          })
+        );
+        addToFirestore();
+      } else if (reply === "no") {
+        dispatch(
+          addMessage({
+            message: "Let me start again.",
+            user: "company",
+          })
+        );
+        dispatch(addMessage(messagesArr[0]));
+      } else {
+        dispatch(
+          addMessage({
+            message: "Please answer our question again.",
             user: "company",
           })
         );
