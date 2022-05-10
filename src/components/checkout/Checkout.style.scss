@@ -1,0 +1,56 @@
+@use '../../sass/setting/color' as *;
+
+.checkout {
+  width: 100%;
+  padding-bottom: 2rem;
+  padding-top: 5rem;
+
+  & h1{
+    text-align: center;
+    background-color: $color-brown;
+  }
+
+  & .no-item{
+    height: 80vh;
+  }
+
+  
+  &-details {
+    max-width: 60%;
+    margin: 2rem auto;
+
+    & h2{
+    text-align: end;
+    margin: 1rem;
+    color: $color-brown;
+  }
+  }
+
+  &-pay{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1rem;
+
+    & h3{
+      color: $color-brown;
+    }
+
+    & button{
+      background-color: #d6c7bf;
+      border: none;
+      font-size: 1.2rem;
+      color: black;
+      width: 12rem;
+      height: 3rem;
+      border-radius: 5px;
+      cursor: pointer;
+
+      &:hover {
+        transition: all 0.3s ease;
+        background-color: $color-brown;
+      }
+    }
+  }
+}
+
