@@ -28,36 +28,58 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
     overflow: scroll;
     gap: 0.5rem;
 
     & .support-message,
     & .user-message {
-      width: 100%;
+      max-width: 100%;
       display: flex;
-      align-items: center;
+      flex-direction: column;
+      justify-content: center;
+
+      & .text-popup {
+        padding: 8px 16px;
+        box-shadow: 0 0 32px rgb(0 0 0 / 8%), 0 16px 16px -16px rgb(0 0 0 / 10%);
+        gap: 0.5rem;
+        display: flex;
+        flex-direction: column;
+      }
+
+      & ul {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.3rem;
+        padding: 0;
+
+        & li {
+          list-style: none;
+        }
+      }
 
       & p {
         word-wrap: break-word;
-        padding: 8px 16px;
-        box-shadow: 0 0 32px rgb(0 0 0 / 8%), 0 16px 16px -16px rgb(0 0 0 / 10%);
       }
     }
 
     & .support-message {
-      justify-content: flex-start;
+      align-items: flex-start;
 
-      & p {
+      & .text-popup {
+        max-width: 20rem;
+
         border-radius: 18px 18px 18px 0px;
         background-color: white;
       }
     }
 
     & .user-message {
-      justify-content: flex-end;
+      align-items: flex-end;
 
-      & p {
+      & .text-popup {
+        max-width: 20rem;
         border-radius: 18px 18px 0 18px;
         background-color: $color-brown;
       }

@@ -3,9 +3,32 @@ import "./CustomerSupport.style.scss";
 import { FiPhoneCall } from "react-icons/fi";
 import { BsChatDots } from "react-icons/bs";
 import Chat from "../chat/Chat";
+import { useDispatch } from "react-redux";
+import { addMessage } from "../../features/MessageSlice";
 
 const CustomerSupport = () => {
   const [startChat, setStartChat] = useState(false);
+
+  const dispatch = useDispatch();
+
+  const onChatOpen = () => {
+    setStartChat(true);
+    setTimeout(() => {
+      dispatch(
+        addMessage({
+          message:
+            "Thank you for visiting customer support. How can I help you? Please provide a number of contents in below.",
+          user: "company",
+          option: [
+            "Ask about items",
+            "Cancel your order",
+            "Ask refund from your order",
+            "About our services",
+          ],
+        })
+      );
+    }, 500);
+  };
 
   return (
     <div className="customer-support">
@@ -34,12 +57,12 @@ const CustomerSupport = () => {
             <BsChatDots />
           </div>
           <div>
-            <button onClick={() => setStartChat(true)}>Send a text</button>
+            <button onClick={() => onChatOpen()}>Send a text</button>
           </div>
           <p>Open Hour: 24/7</p>
         </div>
       </div>
-      <Chat setStartChat={setStartChat} startChat={startChat}/>
+      <Chat setStartChat={setStartChat} startChat={startChat} />
     </div>
   );
 };
