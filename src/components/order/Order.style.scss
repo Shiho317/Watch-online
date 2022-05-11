@@ -1,1 +1,39 @@
-@use  '../../sass/setting/color' as *;
+@use "../../sass/setting/color" as *;
+
+.place-order {
+  width: 100%;
+  padding-top: 5rem;
+
+  & h1 {
+    text-align: center;
+    background-color: $color-brown;
+  }
+
+  &-details{
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+
+    & .shipping-address{
+        width: 50%;
+        padding: 2rem;
+
+      & h2{
+        text-align: start;
+        color: $color-brown;
+      }
+    }
+
+    & .order-summary{
+      width: 30%;
+      padding: 2rem;
+
+      & h2{
+        text-align: start;
+        color: $color-brown;
+      }
+    }
+  }
+}
