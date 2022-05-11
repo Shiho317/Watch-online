@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import { AppContext } from "../../App";
 import "./Checkout.style.scss";
 import CheckoutItems from "./CheckoutItems";
@@ -10,6 +11,9 @@ const Checkout = () => {
     (acc, cartItem) => acc + cartItem.amount * cartItem.price,
     0
   );
+
+  const pst = totalItemsPrice * 0.07;
+  const gst = totalItemsPrice * 0.05;
 
   return (
     <div className="checkout">
@@ -24,11 +28,14 @@ const Checkout = () => {
             />
           ))}
           <div className="checkout-details">
-            <h2>Your total pay: CA${totalItemsPrice.toFixed(2)}</h2>
+            <h2>Subtotal: CA${(totalItemsPrice + pst + gst).toFixed(2)}</h2>
             <div className="checkout-pay">
-              <h3>Pay with: </h3>
-              <button>Credit Card</button>
-              <button>Paypal</button>
+              <Link to='/'>
+                <button>Continue Shopping</button>
+              </Link>
+              <Link to='/order'>
+                <button>Place Order</button>
+              </Link>
             </div>
           </div>
         </>

@@ -15,6 +15,7 @@ import ScrollToTop from "./components/ScrollToTop";
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useSelector } from "react-redux";
 import Checkout from "./components/checkout/Checkout";
+import Order from "./components/order/Order";
 
 export const AppContext = createContext();
 
@@ -65,6 +66,7 @@ function App() {
             <Route path="/service" element={<Service />} />
             <Route path="/support" element={<CustomerSupport />} />
             <Route path="/checkout" element={<Checkout />} />
+            <Route path="/order" element={<Order />} />
           </Routes>
           <Footer />
         </Router>
