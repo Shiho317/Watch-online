@@ -11,10 +11,11 @@
 
   &-details{
     width: 80%;
+    height: 90vh;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     margin: 0 auto;
+    gap: 2rem;
 
     & .shipping-address{
         width: 50%;
@@ -23,16 +24,20 @@
       & h2{
         text-align: start;
         color: $color-brown;
+        margin-bottom: 1rem;
       }
     }
 
     & .order-summary{
-      width: 30%;
+      width: 40%;
+      height: 100%;
       padding: 2rem;
+      overflow: scroll;
 
       & h2{
         text-align: start;
         color: $color-brown;
+        margin-bottom: 1rem;
       }
     }
   }

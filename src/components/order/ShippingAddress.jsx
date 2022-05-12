@@ -35,6 +35,12 @@ const ShippingAddress = () => {
       <TextField
         required
         id="outlined-required"
+        label="Email"
+        className="email"
+      />
+      <TextField
+        required
+        id="outlined-required"
         label="Address1"
         className="address1"
       />
