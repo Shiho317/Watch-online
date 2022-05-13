@@ -5,16 +5,22 @@ import { useDispatch } from "react-redux";
 import { addInfo } from "../../features/UserInfoSlice";
 
 const ShippingAddress = ({ saveSuccess, setSaveSuccess, setShippingFee }) => {
-  const [firstname, setFirstname] = useState("");
-  const [lastname, setLastname] = useState("");
   const [areacode, setAreacode] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState("");
-  const [email, setEmail] = useState("");
-  const [address1, setAddress1] = useState("");
-  const [address2, setAddress2] = useState("");
-  const [state, setState] = useState("");
-  const [city, setCity] = useState("");
-  const [zip, setZip] = useState("");
+
+  const [shippingInfo, setShippingInfo] = useState({
+    firstname: "",
+    lastname: "",
+    phone: {
+      areacode: "",
+      number: "",
+    },
+    email: "",
+    address1: "",
+    address2: "",
+    state: "",
+    city: "",
+    zip: "",
+  });
 
   const dispatch = useDispatch();
 
@@ -22,20 +28,7 @@ const ShippingAddress = ({ saveSuccess, setSaveSuccess, setShippingFee }) => {
     e.preventDefault();
     dispatch(
       addInfo({
-        shipping: {
-          firstname,
-          lastname,
-          phone: {
-            areacode,
-            number: phoneNumber,
-          },
-          email,
-          address1,
-          address2,
-          state,
-          city,
-          zip,
-        },
+        shipping: shippingInfo,
       })
     );
     setSaveSuccess(true);
@@ -72,14 +65,18 @@ const ShippingAddress = ({ saveSuccess, setSaveSuccess, setShippingFee }) => {
         id="outlined-required"
         label="First Name"
         className="firstname"
-        onChange={(e) => setFirstname(e.target.value)}
+        onChange={(e) =>
+          setShippingInfo({ ...shippingInfo, firstname: e.target.value })
+        }
       />
       <TextField
         required
         id="outlined-required"
         label="Last Name"
         className="lastname"
-        onChange={(e) => setLastname(e.target.value)}
+        onChange={(e) =>
+          setShippingInfo({ ...shippingInfo, lastname: e.target.value })
+        }
       />
       <div className="phone-number">
         <select name="area-code" onChange={(e) => setAreacode(e.target.value)}>
@@ -98,7 +95,12 @@ const ShippingAddress = ({ saveSuccess, setSaveSuccess, setShippingFee }) => {
           required
           id="outlined-required"
           label="Phone Number"
-          onChange={(e) => setPhoneNumber(e.target.value)}
+          onChange={(e) =>
+            setShippingInfo({
+              ...shippingInfo,
+              phone: { areacode: areacode, number: e.target.value },
+            })
+          }
         />
       </div>
       <TextField
@@ -106,42 +108,54 @@ const ShippingAddress = ({ saveSuccess, setSaveSuccess, setShippingFee }) => {
         id="outlined-required"
         label="Email"
         className="email"
-        onChange={(e) => setEmail(e.target.value)}
+        onChange={(e) =>
+          setShippingInfo({ ...shippingInfo, email: e.target.value })
+        }
       />
       <TextField
         required
         id="outlined-required"
         label="Address1"
         className="address1"
-        onChange={(e) => setAddress1(e.target.value)}
+        onChange={(e) =>
+          setShippingInfo({ ...shippingInfo, address1: e.target.value })
+        }
       />
       <TextField
         id="outlined-required"
         label="Address2"
         placeholder="Building/Apartment/Suite no,Unit,Floor.etc(optional)"
         className="address2"
-        onChange={(e) => setAddress2(e.target.value)}
+        onChange={(e) =>
+          setShippingInfo({ ...shippingInfo, address2: e.target.value })
+        }
       />
       <TextField
         required
         id="outlined-required"
         label="State/Province"
         className="state"
-        onChange={(e) => setState(e.target.value)}
+        onChange={(e) =>
+          setShippingInfo({ ...shippingInfo, state: e.target.value })
+        }
       />
       <TextField
         required
         id="outlined-required"
         label="City"
         className="city"
-        onChange={(e) => setCity(e.target.value)}
+        onChange={(e) =>
+          setShippingInfo({ ...shippingInfo, city: e.target.value })
+        }
       />
       <TextField
         required
         id="outlined-required"
         label="Post/Zip Code"
         className="zip"
-        onChange={(e) => setZip(e.target.value)}
+        onChange={(e) =>
+          setShippingInfo({ ...shippingInfo, zip: e.target.value })
+        }
       />
       <button type="submit">Save</button>
     </form>
