@@ -16,6 +16,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useSelector } from "react-redux";
 import Checkout from "./components/checkout/Checkout";
 import Order from "./components/order/Order";
+import OrderComp from "./components/orderComp/OrderComp";
 
 export const AppContext = createContext();
 
@@ -67,6 +68,7 @@ function App() {
             <Route path="/support" element={<CustomerSupport />} />
             <Route path="/checkout" element={<Checkout />} />
             <Route path="/order" element={<Order />} />
+            <Route path="/ordered/:id" element={<OrderComp />} />
           </Routes>
           <Footer />
         </Router>

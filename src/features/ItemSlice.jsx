@@ -21,8 +21,11 @@ const itemSlice = createSlice({
     deleteItem: (state, action) => {
       return state.filter((item) => item.id !== action.payload);
     },
+    resetItem: (state, action) => {
+      return [];
+    },
   },
 });
 
-export const { addItem, updateItem, deleteItem } = itemSlice.actions;
+export const { addItem, updateItem, deleteItem, resetItem } = itemSlice.actions;
 export default itemSlice.reducer;

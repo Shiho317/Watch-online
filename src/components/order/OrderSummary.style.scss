@@ -15,7 +15,7 @@
     justify-content: center;
     gap: 0.5rem;
 
-    & h3 {
+    & h4 {
       text-align: end;
     }
 
@@ -33,7 +33,7 @@
     justify-content: center;
     gap: 1rem;
 
-    & h3{
+    & h3 {
       color: black;
     }
 
@@ -57,17 +57,34 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        color: $color-brown;
         cursor: pointer;
 
-        &:hover{
-          background-color: $color-brown;
-          color: white;
+        &:hover {
           transition: all 0.3s ease;
         }
 
-        & p{
+        & p {
           font-size: 0.8rem;
+        }
+      }
+
+      & .payNow {
+        width: 100%;
+        height: 5rem;
+        margin: 0 auto;
+        font-size: 1rem;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: $color-brown;
+        color: black;
+        border: none;
+        cursor: pointer;
+
+        &:hover {
+          background-color: #918883;
+          transition: all 0.3s ease;
         }
       }
     }

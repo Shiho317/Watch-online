@@ -31,7 +31,7 @@ const Cart = ({ items }) => {
           disabled={items.length > 0 ? false : true}
           style={{ opacity: items.length > 0 ? 1 : 0.5 }}
         >
-          Check Out({items.length})
+          Check Out ({items.length})
         </button>
       </Link>
     </div>

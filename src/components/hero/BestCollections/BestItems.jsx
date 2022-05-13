@@ -8,7 +8,7 @@ const BestItems = ({ data }) => {
       <div className="best-image">
         <img src={data.image} alt="item" />
       </div>
-      <Link to={`/details/:${data.id}`}>
+      <Link to={`/details/${data.id}`}>
         <h3>{data.name}</h3>
       </Link>
     </div>

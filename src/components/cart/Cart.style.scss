@@ -3,6 +3,7 @@
 .your-cart {
   width: 30vw;
   height: 100vh;
+  padding: 1rem 0;
   overflow: scroll;
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -16,7 +17,6 @@
   }
 
   & h2 {
-    padding: 1rem;
     text-align: center;
     color: $color-brown;
   }

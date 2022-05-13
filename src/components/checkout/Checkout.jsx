@@ -1,19 +1,36 @@
 import React, { useContext } from "react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { AppContext } from "../../App";
+import { addInfo } from "../../features/UserInfoSlice";
 import "./Checkout.style.scss";
 import CheckoutItems from "./CheckoutItems";
 
 const Checkout = () => {
   const { items, setIsCartOpen } = useContext(AppContext);
 
+  const dispatch = useDispatch();
+
+  const addUserOrder = () => {
+    const orderitemObj = items.map((item) => {
+      const obj = {
+        id: item.id,
+        amount: item.amount,
+      };
+      return obj;
+    });
+
+    dispatch(
+      addInfo({
+      order: orderitemObj
+    })
+    );
+  };
+
   const totalItemsPrice = items.reduce(
     (acc, cartItem) => acc + cartItem.amount * cartItem.price,
     0
   );
-
-  const pst = totalItemsPrice * 0.07;
-  const gst = totalItemsPrice * 0.05;
 
   return (
     <div className="checkout">
@@ -28,13 +45,13 @@ const Checkout = () => {
             />
           ))}
           <div className="checkout-details">
-            <h2>Subtotal: CA${(totalItemsPrice + pst + gst).toFixed(2)}</h2>
+            <h2>Subtotal: CA${totalItemsPrice.toFixed(2)}</h2>
             <div className="checkout-pay">
-              <Link to='/'>
+              <Link to="/">
                 <button>Continue Shopping</button>
               </Link>
-              <Link to='/order'>
-                <button>Place Order</button>
+              <Link to="/order">
+                <button onClick={() => addUserOrder()}>Place Order</button>
               </Link>
             </div>
           </div>
