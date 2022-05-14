@@ -1,3 +1,5 @@
+@use "../../sass/setting/breakpoints" as *;
+
 .modal {
   position: fixed;
   top: 0;
@@ -15,16 +17,29 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 2.5rem;
+    gap: 1.5rem;
+    padding: 0;
+
+    @include pc{
+      gap: 2.5rem;
+    }
 
     & li{
       position: relative;
       width: 15rem;
-      font-size: 1.6rem;
+      font-size: 1rem;
       font-weight: 400;
       list-style: none;
       text-align: center;
       cursor: pointer;
+
+      @include tb{
+        font-size: 1.3rem;
+      }
+
+      @include pc{
+        font-size: 1.6rem;
+      }
 
       & a{
         color: white;
