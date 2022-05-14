@@ -1,12 +1,17 @@
 @use "../../sass/setting/color" as *;
+@use "../../sass/setting/breakpoints" as *;
 
 .your-cart {
-  width: 30vw;
+  width: 80vw;
   height: 100vh;
   padding: 1rem 0;
   overflow: scroll;
   -ms-overflow-style: none;
   scrollbar-width: none;
+
+  @include pc {
+    width: 30vw;
+  }
 
   &::-webkit-scrollbar {
     display: none;

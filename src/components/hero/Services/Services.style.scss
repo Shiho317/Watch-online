@@ -1,9 +1,14 @@
 @use "../../../sass//setting/color" as *;
+@use "../../../sass/setting/breakpoints" as *;
 
 .services {
   position: relative;
   width: 100%;
-  padding: 5rem 0;
+  padding-bottom: 5rem;
+
+  @include pc {
+    padding: 5rem 0;
+  }
 
   & h2 {
     position: relative;
@@ -22,23 +27,40 @@
   }
 
   &-icons {
-    width: 60%;
-    margin: 5rem auto;
+    width: 80%;
+    margin: 2rem auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
 
+    @include tb {
+      width: 60%;
+      margin: 5rem auto;
+    }
+
     & .icon {
-      width: 10rem;
-      height: 8rem;
+      width: 5rem;
+      height: 5rem;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      font-size: 3rem;
+      font-size: 1.5rem;
       background-color: $color-brown;
       color: black;
       gap: 0.5rem;
+
+      @include tb {
+        width: 8rem;
+        height: 8rem;
+        font-size: 2rem;
+      }
+
+      @include pc {
+        width: 10rem;
+        height: 8rem;
+        font-size: 3rem;
+      }
     }
   }
 

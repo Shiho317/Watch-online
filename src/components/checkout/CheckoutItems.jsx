@@ -23,7 +23,7 @@ const CheckoutItems = ({ orderItem, setIsCartOpen }) => {
         <h4>Total: CA${(orderItem.price * orderItem.amount).toFixed(2)}</h4>
         <div className="orderItem-buttons">
           <button onClick={() => deleteFromCart()}>
-            Delete from your cart
+            Delete
           </button>
           <button onClick={() => setIsCartOpen(true)}>Change amount</button>
         </div>

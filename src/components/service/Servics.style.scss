@@ -1,10 +1,11 @@
-@use '../../sass/setting/color' as *;
+@use "../../sass/setting/color" as *;
+@use "../../sass/setting/breakpoints" as *;
 
 .our-services {
-  margin-top: 5rem;
+  padding-top: 5rem;
   width: 100%;
 
-  & h1{
+  & h1 {
     text-align: center;
   }
 
@@ -13,22 +14,30 @@
     height: 2px;
     border: none;
     background-color: $color-brown;
-    margin-bottom: 4rem;
+    // margin-bottom: 4rem;
   }
 
   & .service {
     width: 80%;
-    height: 40vh;
+    padding: 2rem 0;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
 
-    &-icon{
-      font-size: 6rem;
+    &-icon {
+      font-size: 3rem;
       color: $color-brown;
+
+      @include tb {
+        font-size: 5rem;
+      }
+
+      @include pc {
+        font-size: 6rem;
+      }
     }
 
-    & .explanation{
+    & .explanation {
       width: 70%;
       height: 100%;
       display: flex;
@@ -36,4 +45,10 @@
       gap: 2rem;
     }
   }
+}
+
+.services-wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }

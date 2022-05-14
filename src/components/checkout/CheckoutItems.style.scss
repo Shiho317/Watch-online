@@ -1,7 +1,8 @@
 @use '../../sass/setting/color' as *;
+@use '../../sass/setting/breakpoints' as *;
 
 .orderItem{
-  max-width: 60%;
+  max-width: 90%;
   margin: 0 auto;
   padding: 2rem;
   display: flex;
@@ -10,14 +11,28 @@
   gap: 2rem;
   border-bottom: 1px solid $color-brown;
 
+  @include tb{
+    max-width: 60%;
+  }
+
   &-img{
-    width: 20rem;
-    height: 20rem;
+    width: 5rem;
+    height: 5rem;
     overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
     border: 1px solid $color-brown;
+
+    @include tb{
+      width: 10rem;
+      height: 10rem;
+    }
+
+    @include pc{
+      width: 20rem;
+      height: 20rem;
+    }
 
     & img{
       height: 100%;
@@ -36,16 +51,27 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 1rem;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    @include pc{
+      flex-direction: row;
+      gap: 1rem;
+    }
 
     & button{
       background-color: $color-brown;
       border: none;
       color: white;
-      width: 10rem;
-      height: 2.5rem;
+      width: 8rem;
+      height: 2rem;
       border-radius: 5px;
       cursor: pointer;
+
+      @include pc{
+        width: 10rem;
+        height: 2.5rem;
+      }
 
       &:hover {
         transition: all 0.3s ease;

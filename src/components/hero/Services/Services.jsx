@@ -15,7 +15,7 @@ const Services = () => {
         </div>
         <div className="icon">
           <BsPatchCheck />
-          <p>100% Authentic</p>
+          <p>Authentic</p>
         </div>
         <div className="icon">
           <BsClockHistory />

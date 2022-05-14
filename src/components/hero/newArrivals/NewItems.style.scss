@@ -1,12 +1,18 @@
 @use "../../../sass/setting/color" as *;
+@use '../../../sass/setting/breakpoints' as *;
 
 .new-image {
-  width: 20rem;
-  height: 20rem;
+  width: 10rem;
+  height: 10rem;
   border: 2px solid $color-brown;
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @include pc{
+    width: 20rem;
+    height: 20rem;
+  }
 
   &:hover {
     transform: scale(1.1);
@@ -27,6 +33,7 @@
   & a {
     color: black;
     text-decoration: none;
+    text-align: center;
 
     &:hover {
       color: $color-brown;
