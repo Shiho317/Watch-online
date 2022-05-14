@@ -17,5 +17,12 @@
     gap: 3rem;
     font-size: 1.5rem;
     cursor: pointer;
+
+    & .search-engine{
+      position: relative;
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
   }
 }

@@ -1,0 +1,25 @@
+@use "../../sass/setting/color" as *;
+
+.search-engine-input {
+  width: 12rem;
+  height: 2rem;
+  font-size: 1rem;
+  border: 1px solid #918883;
+  outline: none;
+  border-radius: 15px;
+  padding: 0 1rem;
+}
+
+.matched-lists {
+  position: absolute;
+  top: 2rem;
+  left: 0;
+  width: 17rem;
+  max-height: 40rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: white;
+  padding: 0;
+  overflow: scroll;
+}

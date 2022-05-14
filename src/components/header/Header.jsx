@@ -8,11 +8,15 @@ import Badge from "@mui/material/Badge";
 import { AppContext } from "../../App";
 import Drawer from "@mui/material/Drawer";
 import Cart from "../cart/Cart";
+import SearchEngine from "./SearchEngine";
 
 const Header = () => {
-  const { isCartOpen, setIsCartOpen, items } = useContext(AppContext);
+  const { isCartOpen, setIsCartOpen, items, datas } = useContext(AppContext);
 
   const [isOpen, setOpen] = useState(false);
+  const [openSearch, setOpenSearch] = useState(false);
+
+  const openSearchHandler = () => setOpenSearch((prev) => !prev);
 
   const clickHandler = () => setOpen((prev) => !prev);
 
@@ -34,7 +38,10 @@ const Header = () => {
           />
         </div>
         <div className="header-icons">
-          <BiSearch />
+          <div className="search-engine">
+            {openSearch && <SearchEngine datas={datas} setOpenSearch={setOpenSearch} />}
+            <BiSearch onClick={() => openSearchHandler()} />
+          </div>
           <Badge badgeContent={items.length} color="primary">
             <BsHandbag onClick={() => setIsCartOpen(true)} />
           </Badge>

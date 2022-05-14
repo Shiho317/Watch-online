@@ -1,0 +1,35 @@
+@use "../../sass/setting/color" as *;
+
+.matched-list {
+  border-bottom: 1px solid $color-brown;
+  color: black;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  & .matched-img {
+    width: 5rem;
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    & img {
+      height: 100%;
+    }
+  }
+
+  & .matched-details {
+    width: 10rem;
+    height: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  & p {
+    word-wrap: break-word;
+    font-size: 0.8rem;
+  }
+}
