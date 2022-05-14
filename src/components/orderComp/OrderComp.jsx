@@ -1,20 +1,24 @@
-import { collection, getDocs } from "firebase/firestore";
-import React, { useEffect, useState } from "react";
+import { collection, doc, getDocs, updateDoc } from "firebase/firestore";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { db } from "../../Firebase";
 import "./OrderComp.style.scss";
 import OrderReceipt from "./OrderReceipt";
+import { AppContext } from "../../App";
 
 const OrderComp = () => {
+  const { datas } = useContext(AppContext);
+
   const orderId = useParams().id;
 
   const [orderedData, setOrderedData] = useState();
 
   const [userEmail, setUserEmail] = useState("");
+  const [orderedItems, setOrderedItems] = useState([]);
 
   useEffect(() => {
     const getData = async () => {
-      getDocs(collection(db, "user"))
+      await getDocs(collection(db, "user"))
         .then((storeData) => {
           const data = storeData.docs.map((doc) => ({
             ...doc.data(),
@@ -27,13 +31,32 @@ const OrderComp = () => {
               (ele) => Object.keys(ele).includes("email") === true
             ).email
           );
+          setOrderedItems(
+            findOrder.orderInfo.find(
+              (ele) => Object.keys(ele).includes("order") === true
+            )
+          );
         })
         .catch((error) => {
           console.log(error.message);
         });
     };
     getData();
-  }, [orderId]);
+
+    const setData = async () => {
+      orderedItems.order.map((item) => {
+        const originalData = datas.find((ele) => ele.id === item.id);
+        const orderedRef = doc(db, "watches", item.id);
+        updateDoc(orderedRef, {
+          stock: originalData.stock - item.amount,
+          available: originalData.stock - item.amount === 0 ? false : true,
+        });
+        return console.log("success");
+      });
+    };
+    setData();
+    // eslint-disable-next-line
+  }, []);
 
   return (
     <>
@@ -52,7 +75,7 @@ const OrderComp = () => {
             <Link to="/">
               <button>Back to home</button>
             </Link>
-            <Link to='/service'>
+            <Link to="/service">
               <button>Our Service</button>
             </Link>
           </div>
