@@ -1,4 +1,5 @@
-@use '../../sass/setting/color' as *;
+@use "../../sass/setting/color" as *;
+@use "../../sass/setting/breakpoints" as *;
 
 .curr-item {
   width: 80%;
@@ -6,22 +7,32 @@
   gap: 1rem;
   padding: 5rem 0;
   margin: 0 auto;
+  flex-direction: column;
 
-  &-image{
+  @include pc{
+    flex-direction: row;
+  }
+
+  &-image {
     position: relative;
-    width: 30rem;
-    height: 30rem;
+    width: 15rem;
+    height: 15rem;
     overflow: hidden;
     border: 1px solid $color-brown;
     display: flex;
     align-items: center;
     justify-content: center;
 
-    & img{
+    @include pc{
+      width: 30rem;
+      height: 30rem;
+    }
+
+    & img {
       height: 100%;
     }
 
-    & .stock-label{
+    & .stock-label {
       position: absolute;
       left: 0;
       top: 0;
@@ -31,54 +42,59 @@
     }
   }
 
-  &-contents{
-    width: 50%;
+  &-contents {
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
     padding: 0 1rem;
     gap: 1rem;
+
+    @include pc{
+      width: 50%;
+    }
   }
 
-  &-details{
+  &-details {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
     gap: 0.5rem;
 
-    & h2{
+    & h2 {
       margin: 0.5rem 0;
     }
 
-    & h3{
-
-    }
-
-    & select{
+    & select {
       width: 2rem;
     }
   }
 
-  &-buttons{
+  &-buttons {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 1rem;
 
-    & a{
+    & a {
       text-decoration: none;
     }
 
-    & button{
+    & button {
       background-color: $color-brown;
       border: none;
       color: white;
-      width: 10rem;
-      height: 2.5rem;
+      width: 8rem;
+      height: 2rem;
       border-radius: 5px;
       cursor: pointer;
+
+      @include pc{
+        width: 10rem;
+        height: 2.5rem;
+      }
 
       &:hover {
         transition: all 0.3s ease;

@@ -1,4 +1,5 @@
 @use "../../sass/setting/color" as *;
+@use "../../sass/setting/breakpoints" as *;
 
 .checkout {
   width: 100%;
@@ -15,8 +16,12 @@
   }
 
   &-details {
-    max-width: 60%;
+    max-width: 90%;
     margin: 2rem auto;
+
+    @include tb{
+      max-width: 60%;
+    }
 
     & h2 {
       text-align: end;
@@ -29,18 +34,30 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    gap: 1rem;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    @include tb{
+      flex-direction: row;
+      gap: 1rem;
+    }
 
     & button {
       text-decoration: none;
       background-color: #d6c7bf;
       border: none;
-      font-size: 1.2rem;
+      font-size: 1rem;
       color: black;
       width: 12rem;
-      height: 3rem;
+      height: 2.5rem;
       border-radius: 5px;
       cursor: pointer;
+
+      @include pc{
+        width: 12rem;
+        height: 3rem;
+        font-size: 1.2rem;
+      }
 
       &:hover {
         transition: all 0.3s ease;

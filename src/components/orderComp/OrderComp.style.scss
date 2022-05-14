@@ -5,7 +5,7 @@
   width: 100%;
   padding-top: 5rem;
 
-  @include tb{
+  @include tb {
     padding-top: 6rem;
   }
 
@@ -19,8 +19,12 @@
 
     & h2 {
       color: $color-brown;
-      font-size: 4rem;
+      font-size: 2rem;
       text-align: center;
+
+      @include pc {
+        font-size: 4rem;
+      }
     }
 
     & p {
@@ -34,16 +38,25 @@
     align-items: center;
     justify-content: center;
     margin: 2rem 0;
-    gap: 6rem;
+    gap: 1rem;
+
+    @include pc {
+      gap: 6rem;
+    }
 
     & button {
       background-color: $color-brown;
       border: none;
       color: white;
-      width: 12rem;
-      height: 3rem;
+      width: 8rem;
+      height: 2rem;
       border-radius: 5px;
       cursor: pointer;
+
+      @include pc {
+        width: 12rem;
+        height: 3rem;
+      }
 
       &:hover {
         transition: all 0.3s ease;

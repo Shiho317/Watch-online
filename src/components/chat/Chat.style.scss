@@ -1,13 +1,27 @@
 @use "../../sass/setting/color" as *;
+@use "../../sass/setting/breakpoints" as *;
 
 .support-chat {
   position: fixed;
   bottom: 0;
+  right: 0;
   background: #d6c7bf;
-  width: 30rem;
-  height: 40rem;
-  padding: 3rem 2rem;
+  width: 15rem;
+  height: 30rem;
+  padding: 1rem;
+  padding-top: 3rem;
   transition: all 0.5s ease;
+
+  @include tb {
+    width: 20rem;
+    height: 35rem;
+  }
+
+  @include pc {
+    padding: 2rem;
+    width: 30rem;
+    height: 40rem;
+  }
 
   &-close {
     position: absolute;
@@ -68,10 +82,13 @@
       align-items: flex-start;
 
       & .text-popup {
-        max-width: 20rem;
-
+        max-width: 15rem;
         border-radius: 18px 18px 18px 0px;
         background-color: white;
+
+        @include pc {
+          max-width: 20rem;
+        }
       }
     }
 
@@ -79,9 +96,13 @@
       align-items: flex-end;
 
       & .text-popup {
-        max-width: 20rem;
+        max-width: 15rem;
         border-radius: 18px 18px 0 18px;
         background-color: $color-brown;
+
+        @include pc {
+          max-width: 20rem;
+        }
       }
     }
   }
@@ -92,8 +113,17 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 26rem;
+    width: 13rem;
     margin: 0 auto;
+    gap: 0;
+
+    @include tb {
+      width: 18rem;
+    }
+
+    @include pc {
+      width: 26rem;
+    }
 
     & input {
       width: 100%;

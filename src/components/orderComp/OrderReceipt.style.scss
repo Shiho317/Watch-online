@@ -1,8 +1,13 @@
 @use "../../sass/setting/color" as *;
+@use "../../sass/setting/breakpoints" as *;
 
 .receipt {
-  width: 80%;
+  width: 90%;
   margin: 0 auto;
+
+  @include tb {
+    width: 80%;
+  }
 
   &-card {
     display: flex;
@@ -16,9 +21,14 @@
     border-radius: 10px;
     box-shadow: 0 0 32px rgb(0 0 0 / 8%), 0 16px 16px -16px rgb(0 0 0 / 10%);
 
-    &-details{
+    &-details {
       display: grid;
       gap: 2rem;
+      text-align: center;
+
+      @include pc {
+        text-align: start;
+      }
     }
   }
 
