@@ -33,7 +33,7 @@ const OrderComp = () => {
         });
     };
     getData();
-  }, []);
+  }, [orderId]);
 
   return (
     <>
