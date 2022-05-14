@@ -33,12 +33,10 @@ const OrderSummary = ({
     e.preventDefault();
     dispatch(
       addInfo({
-        payment: {
-          card,
-          cardno,
-          cardex,
-          cardcode,
-        },
+        card,
+        cardno,
+        cardex,
+        cardcode,
       })
     );
     setIsNotCard(true);
@@ -56,19 +54,19 @@ const OrderSummary = ({
     setCard(value);
   };
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const addUserInfoFireStore = async () => {
+    console.log(userInfo)
     const addUserInfo = await addDoc(collection(db, "user"), {
-      orderInfo: userInfo
-    })
+      orderInfo: userInfo,
+    });
     console.log("Data store Id: ,", addUserInfo.id);
     dispatch(resetItem());
     dispatch(resetInfo());
     setTimeout(() => {
-        navigate(`/ordered/${addUserInfo.id}`)
-    }, 1000)
-    
+      navigate(`/ordered/${addUserInfo.id}`);
+    }, 1000);
   };
 
   return (
@@ -152,8 +150,8 @@ const OrderSummary = ({
           </div>
           <button
             className="payNow"
-            disabled={card && isNotCard ? false : true}
-            style={{ opacity: !isNotCard ? 0.5 : 1 }}
+            disabled={card !== "" && isNotCard ? false : true}
+            style={{ opacity: card === "" || !isNotCard ? 0.5 : 1 }}
             onClick={() => addUserInfoFireStore()}
           >
             Pay Now

@@ -26,11 +26,7 @@ const ShippingAddress = ({ saveSuccess, setSaveSuccess, setShippingFee }) => {
 
   const addUserShipping = (e) => {
     e.preventDefault();
-    dispatch(
-      addInfo({
-        shipping: shippingInfo,
-      })
-    );
+    dispatch(addInfo(shippingInfo));
     setSaveSuccess(true);
     switch (areacode) {
       case "+1":

@@ -20,11 +20,9 @@ const Checkout = () => {
       return obj;
     });
 
-    dispatch(
-      addInfo({
+    dispatch(addInfo({
       order: orderitemObj
-    })
-    );
+    }));
   };
 
   const totalItemsPrice = items.reduce(

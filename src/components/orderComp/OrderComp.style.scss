@@ -1,0 +1,64 @@
+@use "../../sass/setting/color" as *;
+@use "../../sass/setting/breakpoints" as *;
+
+.order-completed {
+  width: 100%;
+  padding-top: 5rem;
+
+  @include tb{
+    padding-top: 6rem;
+  }
+
+  & h1 {
+    text-align: center;
+    background-color: $color-brown;
+  }
+
+  & .order-thank {
+    padding: 2rem 1rem;
+
+    & h2 {
+      color: $color-brown;
+      font-size: 4rem;
+      text-align: center;
+    }
+
+    & p {
+      text-align: center;
+    }
+  }
+
+  &-buttons {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2rem 0;
+    gap: 6rem;
+
+    & button {
+      background-color: $color-brown;
+      border: none;
+      color: white;
+      width: 12rem;
+      height: 3rem;
+      border-radius: 5px;
+      cursor: pointer;
+
+      &:hover {
+        transition: all 0.3s ease;
+        background-color: #918883;
+      }
+    }
+  }
+}
+
+.loading {
+  width: 100%;
+  height: 100vh;
+
+  & p {
+    text-align: center;
+    color: $color-brown;
+  }
+}
