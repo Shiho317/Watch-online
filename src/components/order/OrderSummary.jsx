@@ -57,7 +57,6 @@ const OrderSummary = ({
   const navigate = useNavigate();
 
   const addUserInfoFireStore = async () => {
-    console.log(userInfo)
     const addUserInfo = await addDoc(collection(db, "user"), {
       orderInfo: userInfo,
     });

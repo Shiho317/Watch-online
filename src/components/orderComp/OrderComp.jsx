@@ -14,9 +14,10 @@ const OrderComp = () => {
   const [orderedData, setOrderedData] = useState();
 
   const [userEmail, setUserEmail] = useState("");
-  const [orderedItems, setOrderedItems] = useState([]);
 
   useEffect(() => {
+    let orderedItems;
+
     const getData = async () => {
       await getDocs(collection(db, "user"))
         .then((storeData) => {
@@ -31,30 +32,24 @@ const OrderComp = () => {
               (ele) => Object.keys(ele).includes("email") === true
             ).email
           );
-          setOrderedItems(
-            findOrder.orderInfo.find(
-              (ele) => Object.keys(ele).includes("order") === true
-            )
+          orderedItems = findOrder.orderInfo.find(
+            (ele) => Object.keys(ele).includes("order") === true
           );
+          orderedItems.order.map((item) => {
+            const originalData = datas.find((ele) => ele.id === item.id);
+            const orderedRef = doc(db, "watches", item.id);
+            updateDoc(orderedRef, {
+              stock: originalData.stock - item.amount,
+              available: originalData.stock - item.amount === 0 ? false : true,
+            });
+            return console.log("success");
+          });
         })
         .catch((error) => {
           console.log(error.message);
         });
     };
     getData();
-
-    const setData = async () => {
-      orderedItems.order.map((item) => {
-        const originalData = datas.find((ele) => ele.id === item.id);
-        const orderedRef = doc(db, "watches", item.id);
-        updateDoc(orderedRef, {
-          stock: originalData.stock - item.amount,
-          available: originalData.stock - item.amount === 0 ? false : true,
-        });
-        return console.log("success");
-      });
-    };
-    setData();
     // eslint-disable-next-line
   }, []);
 
