@@ -67,12 +67,12 @@
   }
 
   & .contact-way {
-    margin-top: 2rem;
+    margin: 2rem 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 2rem;
+    gap: 1rem;
 
     @include tb {
       transform: translateY(-4rem);

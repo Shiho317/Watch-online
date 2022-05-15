@@ -30,7 +30,7 @@ const Service = () => {
               Europe - $30.00 (14 - 21 days)
               <br />
             </h3>
-            <p>Shipping fee is FREE for orders $200.00+</p>
+            <p>Shipping fee is FREE for orders $2000.00+</p>
           </div>
         </div>
         <div className="service">
