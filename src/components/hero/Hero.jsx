@@ -17,12 +17,12 @@ const Hero = () => {
           <div className="hero-title">
             <h1>A Watch Makes You More Attractive</h1>
             <p>
-              A watch...
+              A watch...Tells you the time.
               <br />
-              tells you a time, part of your fashion, makes you a confidence.
+              Tells you the time. It is your fashion. It gives you confidence.
               <br />
-              Are you looking for the best watch for you? <br />
-              We would like to help you.
+              Are you looking for the best watch for yourself, or for someone special? <br/>
+              We are here to help you.
             </p>
           </div>
         </div>
