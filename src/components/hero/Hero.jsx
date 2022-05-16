@@ -17,7 +17,7 @@ const Hero = () => {
           <div className="hero-title">
             <h1>A Watch Makes You More Attractive</h1>
             <p>
-              A watch...Tells you the time.
+              A watch...
               <br />
               Tells you the time. It is your fashion. It gives you confidence.
               <br />
